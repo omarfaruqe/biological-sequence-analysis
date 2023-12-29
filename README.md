@@ -15,6 +15,79 @@
 1. Functional annotation
 
 
+## 1.a R Programming Language
+
+### 1. Background
+- **Development:** Developed by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand.
+- **Launch:** First appeared in the early 1990s.
+- **Purpose:** Designed for statistical computing and graphics.
+
+### 2. Features
+- **Open Source:** Free and open-source.
+- **Platform Independent:** Works on Windows, MacOS, and Linux.
+- **Statistical Analysis:** Excels in statistical computing and graphical representation of data.
+- **Packages:** Vast repository of packages for various statistical procedures and graphical methods.
+- **Scripting Language:** Allows for scripting, making it flexible and powerful for data analysis.
+
+### 3. Community & Support
+- **CRAN:** The Comprehensive R Archive Network (CRAN) is a repository of thousands of packages.
+- **Active Community:** Supported by a vibrant community.
+
+## 1.b RStudio
+
+### 1. What is RStudio?
+- **Integrated Development Environment (IDE):** An IDE for R programming.
+- **Development:** Developed by RStudio, PBC.
+
+### 2. Features
+- **Code Execution:** Allows writing and executing R code.
+- **Debugging Tools:** Integrated tools for debugging R scripts.
+- **Package Management:** Simplifies managing R packages.
+- **Version Control:** Support for systems like Git.
+- **Plots & Reports:** Ability to view plots and generate reports.
+
+### 3. User Interface
+- **Panels:** Includes panels for scripts, R console, environment/variables, and output/plots.
+- **Customizable Layout:** Layout can be customized to suit the user's workflow.
+
+### 4. Accessibility
+- **Desktop and Server Versions:** Available in desktop and server versions.
+
+
+
+
+# 2. Installing Requisite Libraries in R
+
+### 1. Open R or RStudio
+- Open R or RStudio. RStudio is recommended for a more user-friendly interface.
+
+### 2. Use the `install.packages()` Function
+- To install a package, use the `install.packages()` function with the package name as a string.
+- Example: `install.packages("ggplot2")`
+
+### 3. Loading Libraries
+- After installation, load the package into your R session using `library()` or `require()`.
+- Example: `library(ggplot2)` or `require(ggplot2)`
+
+### 4. Installing Multiple Packages
+- To install multiple packages at once, pass a vector of package names.
+- Example: `install.packages(c("ggplot2", "dplyr", "tidyr"))`
+
+### 5. Dependencies
+- `install.packages()` also installs any dependencies of the package by default.
+
+### 6. Using CRAN Mirrors
+- When installing packages, you may need to select a CRAN mirror, preferably one close to your location for faster downloads.
+
+### 7. Updating Packages
+- Use `update.packages()` to update all your installed packages to their latest versions.
+
+### 8. Troubleshooting
+- Common issues include installation errors due to missing dependencies, internet connection problems, or lack of administrative rights.
+
+### 9. Additional Repositories
+- R can also install packages from other sources like Bioconductor, GitHub, or local files, often using the `devtools` package for GitHub sources.
+
 
 ## 3. Read and Store DNA Sequences
 Reading and storing DNA sequences in R involves a few key steps, such as reading the file containing the sequences, processing the data, and storing it in an appropriate data structure. Here, I'll assume the DNA sequences are stored in a plain text file, one sequence per line. This is a simple and common format, but be aware that in real-world applications, DNA sequences might be stored in formats like FASTA or GenBank, which would require slightly different handling.
@@ -67,7 +140,7 @@ Here's a step-by-step guide to read and store DNA sequences in R:
 
 This is a basic template, and depending on your specific requirements (like handling different file formats, dealing with very large files, etc.), you might need to modify or expand upon these steps. For advanced manipulations and analyses of biological sequences, you may also consider using specialized bioinformatics packages in R like `Biostrings` from the Bioconductor project.
 
-## Transform, Find motif and basic statistics
+## 4. Transform, Find motif and basic statistics
 Performing transformations, finding motifs, and conducting basic statistical analysis on DNA sequences in R can be done using a combination of base R functions and specialized bioinformatics packages. For this, I'll use the `Biostrings` package from the Bioconductor project, which is specifically designed for biological sequence analysis.
 
 First, you need to install and load the `Biostrings` package. Since `Biostrings` is part of Bioconductor, it's not installed using `install.packages()`. Here's how you do it:
@@ -157,7 +230,7 @@ print(summary_stats)
 
 Remember, this is a simplified example. Real-world bioinformatics analyses can be much more complex, and you might need to tailor these steps to suit your specific data and research questions.
 
-## Analyzing Protein Properties
+## 5. Analyzing Protein Properties
 
 Analyzing protein properties in R involves understanding various aspects of protein sequences, such as amino acid composition, molecular weight, isoelectric point, secondary structure prediction, and so on. The `Biostrings` package in Bioconductor, along with other specialized packages, can be very useful for these analyses. Below, I'll outline some basic steps for analyzing protein properties:
 
@@ -243,7 +316,7 @@ print(list("Amino Acid Composition" = aa_composition,
 
 This example provides a basic framework, but remember that protein analysis can be much more nuanced and complex, depending on the level of detail and the specific properties of interest. For more advanced analyses, such as isoelectric point calculation or secondary structure prediction, you would typically use specialized bioinformatics tools or web services.
 
-## MSA with R
+## 6. MSA with R
 Multiple Sequence Alignment (MSA) is a fundamental task in bioinformatics, used to align three or more biological sequences (protein or nucleic acid) to identify regions of similarity. These alignments can provide insights into functional, structural, or evolutionary relationships among the sequences. In R, you can perform MSA using various packages, one of the most popular being the `msa` package from Bioconductor.
 
 Here's how you can perform MSA in R using the `msa` package:
@@ -323,7 +396,7 @@ writeXStringSet(myAlignment, file="alignment.clustal", format="clustal")
 
 This is a basic workflow for MSA in R. Depending on the size of your dataset and the complexity of the sequences, you might need to adjust the method or explore other algorithms for optimal results. Additionally, for large-scale or highly complex analyses, consider using dedicated bioinformatics software or cloud-based platforms that might offer more computational power and specialized algorithms.
 
-## Phylogenetic Tree Construction in R
+## 8. Phylogenetic Tree Construction in R
 Constructing a phylogenetic tree in R involves several steps, from preparing your sequence data to selecting an appropriate method for tree construction. R offers several packages for this purpose, with `ape` (Analysis of Phylogenetics and Evolution) being one of the most commonly used. Here, I'll guide you through the process using DNA sequence data as an example.
 
 ### Step 1: Install and Load Necessary Packages
@@ -411,7 +484,7 @@ plot(tree, main="Phylogenetic Tree")
 
 This process provides a basic phylogenetic tree. Depending on your research question and data complexity, you might need to explore other methods and refine this pipeline. For instance, you can use maximum likelihood or Bayesian methods for tree construction, which are available in other R packages. Additionally, consider performing bootstrap analysis to assess the reliability of the inferred tree.
 
-## NJ tree, Bootstrapping
+## 9. NJ tree, Bootstrapping
 Neighbor-Joining (NJ) trees and bootstrapping are common techniques in phylogenetic analysis. The NJ method is a distance-based approach that creates a tree by grouping sequences based on their evolutionary distances. Bootstrapping is used to assess the reliability of the tree structure by repeatedly resampling the data and recalculating the tree. Here's how to do both in R using the `ape` and `phangorn` packages:
 
 ### Step 1: Install and Load Necessary Packages
@@ -512,7 +585,7 @@ plot(nj_tree_with_bootstrap, show.node.label = TRUE)
 
 This code will generate a Neighbor-Joining tree with bootstrap values to assess the reliability of your phylogenetic analysis. Remember, bootstrapping can be computationally intensive, especially for large datasets or a high number of replicates. Adjust the `bootstrap_replicates` according to your computational resources and requirements.
 
-## Introduction to Bioconductor
+## 9. Introduction to Bioconductor
 Bioconductor is an open-source, open-development software project that focuses on providing tools for the analysis and comprehension of high-throughput genomic data. It is primarily used in bioinformatics and computational biology, and it works in conjunction with the R statistical programming language. Here’s an introduction to Bioconductor, including its features, how to install it, and its key functionalities:
 
 ### Features and Scope
@@ -565,11 +638,8 @@ Replace `"PackageName"` with the name of the Bioconductor package you wish to in
 
 - **Workshops and Courses**: Various workshops and online courses are available for beginners and advanced users.
 
-### Conclusion
 
-Bioconductor is an essential tool for anyone working in bioinformatics and computational biology. Its integration with R, a powerful statistical programming language, makes it a robust solution for analyzing and interpreting complex biological data. The project’s commitment to open-source development and reproducible research aligns well with the evolving needs of the scientific community.
-
-## Differential gene expression analysis of RNA seq
+## 10. Differential gene expression analysis of RNA seq
 Differential gene expression analysis of RNA-Seq data is a fundamental task in bioinformatics, used to identify genes whose expression levels significantly differ under various conditions (e.g., disease vs. healthy, treated vs. untreated). The process involves several key steps, from pre-processing the raw data to statistical analysis for identifying differentially expressed genes. In R, this can be achieved using packages from the Bioconductor project, with `DESeq2` being one of the most popular.
 
 ### Steps in Differential Gene Expression Analysis
@@ -663,7 +733,7 @@ plotMA(results, main = "MA Plot", ylim = c(-2, 2))
 
 Differential gene expression analysis with RNA-Seq data is a powerful approach for understanding molecular mechanisms in biology and disease. The combination of robust statistical methods in R packages like DESeq2 and thorough experimental design and quality control leads to insightful biological discoveries.
 
-## Heat map generation
+## 11. Heat map generation
 Creating a heatmap is a common way to visually represent complex data, such as gene expression patterns from RNA-Seq data. In R, this can be achieved using several packages, but one of the most popular is `pheatmap`. This package allows for the generation of attractive heatmaps with a good degree of customization. Here’s how you can create a heatmap in R:
 
 ### Step 1: Install and Load Necessary Packages
@@ -726,7 +796,7 @@ This code will produce a heatmap of your expression data, with each row represen
 
 Remember, heatmaps can be highly customizable. The `pheatmap` function has many other parameters that you can tweak to adjust the appearance of your heatmap, depending on your specific needs and preferences.
 
-## Functional annotation
+## 12. Functional annotation
 Functional annotation in bioinformatics is the process of attaching biological information to genomic elements, such as genes or proteins. This typically includes information about gene function, protein function, cellular location, and biological pathways. In the context of RNA-Seq data analysis or genomics more broadly, functional annotation is a crucial step for understanding the biological significance of your findings.
 
 ### Tools and Resources for Functional Annotation
